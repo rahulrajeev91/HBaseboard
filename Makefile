@@ -34,8 +34,8 @@ clean-test:
 lint:
 	flake8 HBaseBoard tests
 
-test:
-	python setup.py test
+test: install
+	py.test --tb=short -s
 
 test-all:
 	tox
@@ -58,7 +58,20 @@ release: clean
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
 
-dist: clean
+
+sdist: clean install-deps-production
 	python setup.py sdist
-	python setup.py bdist_wheel
+
+dist: clean install-deps-production
+	python setup.py bdist_wheel --universal
 	ls -l dist
+
+install-deps-dev: requirements.txt requirements-dev.txt
+	pip install -r requirements-dev.txt
+
+install-deps-production: requirements.txt
+	pip install -r requirements.txt
+
+install: dist
+	rm -fr build/
+	pip install dist/*.whl
