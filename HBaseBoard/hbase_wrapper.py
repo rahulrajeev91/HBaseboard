@@ -6,6 +6,9 @@ class HBaseWrapper(object):
     def __init__(self):
         self.hbase_con = hb.Connection()
 
+    def close_connection(self):
+        return self.hbase_con.close()
+
     def get_tables_list(self):
         return self.hbase_con.tables()
 
