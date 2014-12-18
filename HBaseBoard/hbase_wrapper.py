@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
 import happybase as hb
+import config
 
 
 class HBaseWrapper(object):
-    def __init__(self):
-        self.hbase_con = hb.Connection()
+    def __init__(self, host="localhost", port=9090):
+        self.hbase_con = hb.Connection(
+            host=host,
+            port=port,
+            timeout=config.hbase_connection_timeout
+        )
 
     def close_connection(self):
         return self.hbase_con.close()
