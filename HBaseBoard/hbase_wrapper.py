@@ -8,7 +8,7 @@ class HBaseWrapper(object):
         self.hbase_con = hb.Connection(
             host=host,
             port=port,
-            timeout=config.hbase_connection_timeout
+            timeout=config.CONNECTION_TIMEOUT
         )
 
     def close_connection(self):
