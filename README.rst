@@ -2,22 +2,18 @@
 HbaseBoard
 ===============================
 
-.. image:: https://badge.fury.io/py/HBaseBoard.png
-    :target: http://badge.fury.io/py/HBaseBoard
-
-.. image:: https://travis-ci.org/rahulrajeev91/HBaseBoard.png?branch=master
-        :target: https://travis-ci.org/rahulrajeev91/HBaseBoard
-
-.. image:: https://pypip.in/d/HBaseBoard/badge.png
-        :target: https://pypi.python.org/pypi/HBaseBoard
+.. image:: https://travis-ci.org/rahulrajeev91/HBaseboard.svg?branch=master
+        :target: https://travis-ci.org/rahulrajeev91/HBaseboard
 
 
-Dashboard to quickly visualize HBase tables
+A simple dashboard to quickly visualize and manipulate HBase tables. The Thrift API is used to interact with the HBase tables.
 
 * Free software: BSD license
-* Documentation: https://HBaseBoard.readthedocs.org.
+* Documentation: https://HBaseboard.readthedocs.org.
+* Supports Python 2.7
 
 Features
 --------
-
-* TODO
+* The visualizer is a standalone console script
+* Can be executed on any remote host
+* Simple GUI interface that can be used to create custom fitlers and table scans
