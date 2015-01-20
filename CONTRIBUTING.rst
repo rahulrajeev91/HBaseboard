@@ -66,7 +66,7 @@ Ready to contribute? Here's how to set up `HBaseBoard` for local development.
 
     $ mkvirtualenv HBaseBoard
     $ cd HBaseBoard/
-    $ python setup.py develop
+    $ make install
 
 4. Create a branch for local development::
 
@@ -77,8 +77,7 @@ Ready to contribute? Here's how to set up `HBaseBoard` for local development.
 5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
 
     $ flake8 HBaseBoard tests
-    $ python setup.py test
-    $ tox
+    $ make test
 
    To get flake8 and tox, just pip install them into your virtualenv.
 
@@ -108,4 +107,4 @@ Tips
 
 To run a subset of tests::
 
-    $ python -m unittest tests.test_HBaseBoard
+    $ make unittest
