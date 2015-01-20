@@ -10,6 +10,11 @@ import pytest
 from HBaseBoard.hbase_wrapper import HBaseWrapper
 
 
+@pytest.fixture(autouse=True)
+def no_requests(monkeypatch):
+    monkeypatch.setattr("happybase.Connection", Mock())
+
+
 @pytest.mark.unittest
 class TestHBaseWrapper(object):
     def setup(self):
