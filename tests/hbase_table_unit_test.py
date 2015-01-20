@@ -9,6 +9,7 @@ from mock import Mock
 
 from HBaseBoard.hbase_table import HBaseTable
 
+
 @pytest.mark.unittest
 class TestHBaseTableClass(object):
     def setup(self):
@@ -47,7 +48,8 @@ class TestHBaseTableClass(object):
         test_val2 = ("key2", {"cf:first_name": "daffy", "cf:last_name": "duck"})
         test_val3 = ("key3", {"cf:first_name": "porky", "cf:last_name": "pig"})
         test_val4 = ("key4", {"cf:first_name": "goofy", "cf:last_name": "dog"})
-        self.table_mock.scan.return_value = iter([test_val1, test_val2, test_val3, test_val4])
+        self.table_mock.scan.return_value = iter(
+            [test_val1, test_val2, test_val3, test_val4])
 
         table_vals = []
         for value in my_table.scan(max_count=3):
