@@ -7,11 +7,17 @@ help:
 	@echo "clean-test - remove test and coverage artifacts"
 	@echo "lint - check style with flake8"
 	@echo "test - run tests quickly with the default Python"
+	@echo "local_tests - run only the unit tests"
 	@echo "test-all - run tests on every Python version with tox"
 	@echo "coverage - check code coverage quickly with the default Python"
 	@echo "docs - generate Sphinx HTML documentation, including API docs"
 	@echo "release - package and upload a release"
 	@echo "dist - package"
+	@echo "sdist - source distribution"
+	@echo "install - install package"
+	@echo "install-deps-dev - install requirements from requirements-dev.txt"
+	@echo "install-deps-production - install requirements from requirements.txt"
+
 
 clean: clean-build clean-pyc clean-test
 
@@ -36,6 +42,9 @@ lint:
 
 test: install
 	py.test --tb=short -s
+
+local_test: install
+	py.test --tb=short -s -m local_test
 
 test-all:
 	tox
@@ -72,6 +81,6 @@ install-deps-dev: requirements.txt requirements-dev.txt
 install-deps-production: requirements.txt
 	pip install -r requirements.txt
 
-install: dist
+install: clean dist
 	rm -fr build/
 	pip install dist/*.whl
